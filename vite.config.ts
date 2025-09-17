@@ -14,13 +14,14 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Base public path when served in production
-  base: mode === 'production' ? '/' : '/',
+  // Set base URL for GitHub Pages
+  base: mode === 'production' ? '/Gurekam-Portfolio/' : '/',
   // Build configuration
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: mode === 'development',
+    sourcemap: true,
+    emptyOutDir: true,
     minify: mode === 'production' ? 'esbuild' : false,
   },
   // Preview configuration
