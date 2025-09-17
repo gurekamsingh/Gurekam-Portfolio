@@ -28,7 +28,7 @@ const projects = [
       "CI/CD pipelines via GitHub Actions"
     ],
     category: "Full-Stack Development",
-    github: "https://github.com/gurekamsingh/Spreadsheet-Application"
+    github: "https://github.com/gurekamsingh/spreadsheetApplication"
   },
   {
     title: "EcoExchange Auction Platform",
@@ -41,7 +41,7 @@ const projects = [
       "Automated CI/CD with rigorous testing"
     ],
     category: "Microservices Architecture",
-    github: "https://github.com/gurekamsingh/EcoExchange"
+    github: "https://github.com/pooja-vish/EcoExchange"
   },
   {
     title: "Infrastructure Automation at Paytm",

@@ -6,7 +6,7 @@ const skillCategories = [
   {
     title: "Cloud Platforms",
     icon: Cloud,
-    skills: ["AWS", "Azure", "Databricks", "Kafka", "Flink", "Athena", "Dataflow"],
+    skills: ["AWS", "Azure", "GCP", "Databricks", "Kafka", "Flink", "Athena", "Dataflow"],
     color: "devops-blue"
   },
   {
