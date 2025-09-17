@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DevOps Portfolio Design System - Dark Professional Theme */
+
+@layer base {
+  :root {
+    /* Dark portfolio theme */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 95%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 195 100% 60%;
+    --primary-foreground: 240 10% 4%;
+
+    --secondary: 240 10% 12%;
+    --secondary-foreground: 0 0% 85%;
+
+    --muted: 240 10% 12%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 195 100% 60%;
+    --accent-foreground: 240 10% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 195 100% 60%;
+
+    --radius: 0.75rem;
+
+    /* DevOps themed colors */
+    --devops-blue: 195 100% 60%;
+    --devops-cyan: 180 100% 70%;
+    --devops-purple: 270 100% 70%;
+    --devops-green: 120 100% 60%;
+    
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--devops-blue)), hsl(var(--devops-cyan)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--devops-purple)), hsl(var(--devops-blue)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--muted)));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--devops-blue) / 0.1);
+    --shadow-glow: 0 0 40px hsl(var(--devops-blue) / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  /* 3D Transform Effects */
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
+
+  .perspective {
+    perspective: 1000px;
+  }
+
+  .rotate-y-6 {
+    transform: rotateY(6deg);
+  }
+
+  .rotate-x-6 {
+    transform: rotateX(6deg);
+  }
+
+  .scale-102 {
+    transform: scale(1.02);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--devops-blue));
+  }
+}
+
+@layer components {
+  /* Hero text animations */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-up-delay {
+    animation: fadeUp 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(var(--devops-blue) / 0.5);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(var(--devops-blue) / 0.8), 0 0 40px hsl(var(--devops-cyan) / 0.3);
+    }
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-20 px-6 max-w-6xl mx-auto;
+  }
+
+  /* Glass effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
