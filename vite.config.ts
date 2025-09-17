@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => ({
   base: mode === 'production' ? '/Gurekam-Portfolio/' : '/',
   // Build configuration
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
     assetsDir: 'assets',
     sourcemap: true,
     emptyOutDir: true,
