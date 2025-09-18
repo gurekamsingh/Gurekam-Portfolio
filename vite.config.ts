@@ -14,8 +14,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Always use GitHub Pages base URL
-  base: '/Gurekam-Portfolio/',
+  // Remove the base URL from here since we're using docs folder
+  base: '/',
   // Build configuration
   build: {
     outDir: 'docs',

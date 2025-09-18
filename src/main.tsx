@@ -1,12 +1,11 @@
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom"; 
-import App from "./App.tsx";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 import "./index.css";
 
-const base = import.meta.env.BASE_URL;
-
+// For GitHub Pages, we don't need to set basename since we're using the root
 createRoot(document.getElementById("root")!).render(
-  <BrowserRouter basename={base}>
+  <BrowserRouter>
     <App />
   </BrowserRouter>
 );
