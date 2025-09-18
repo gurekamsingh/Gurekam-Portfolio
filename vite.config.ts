@@ -1,8 +1,7 @@
-import { defineConfig } from "vite";
+﻿import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// https://vitejs.dev/config/
 export default defineConfig({
   server: {
     host: "::",
@@ -14,12 +13,10 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Remove the base URL from here since we're using docs folder
-  base: '/',
-  // Build configuration
+  base: "/Gurekam-Portfolio/",
   build: {
-    outDir: 'docs',
-    assetsDir: 'assets',
+    outDir: "docs",
+    assetsDir: "assets",
     sourcemap: true,
     emptyOutDir: true,
   },
