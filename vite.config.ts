@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   server: {
     host: "::",
     port: 8080,
@@ -14,19 +14,17 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Set base URL for GitHub Pages
-  base: mode === 'production' ? '/Gurekam-Portfolio/' : '/',
+  // Always use GitHub Pages base URL
+  base: '/Gurekam-Portfolio/',
   // Build configuration
   build: {
     outDir: 'docs',
     assetsDir: 'assets',
     sourcemap: true,
     emptyOutDir: true,
-    minify: mode === 'production' ? 'esbuild' : false,
   },
-  // Preview configuration
   preview: {
     port: 8080,
     strictPort: true,
   },
-}));
+});
