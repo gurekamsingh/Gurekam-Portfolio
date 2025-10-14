@@ -15,7 +15,7 @@ RUN npm run build:docker
 
 # Stage 2 - the production environment
 FROM nginx:1.29.1
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/docs /usr/share/nginx/html
 # This will copy all the source:app/docs file content into dest:/usr/share/nginx/html
 
 EXPOSE 80

@@ -16,7 +16,8 @@ export default defineConfig(({ mode }) => ({
   // Use '/' for Docker, '/Gurekam-Portfolio/' for GitHub Pages
   base: mode === 'docker' ? '/' : '/Gurekam-Portfolio/',
   build: {
-    outDir: mode === 'docker' ? 'dist' : 'docs',
+    outDir: 'docs',
+    //    outDir: mode === 'docker' ? 'dist' : 'docs',
     assetsDir: "assets",
     sourcemap: true,
     emptyOutDir: true,
