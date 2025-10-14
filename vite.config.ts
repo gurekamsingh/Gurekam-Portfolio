@@ -2,7 +2,7 @@
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
@@ -13,9 +13,10 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/Gurekam-Portfolio/",
+  // Use '/' for Docker, '/Gurekam-Portfolio/' for GitHub Pages
+  base: mode === 'docker' ? '/' : '/Gurekam-Portfolio/',
   build: {
-    outDir: "docs",
+    outDir: mode === 'docker' ? 'dist' : 'docs',
     assetsDir: "assets",
     sourcemap: true,
     emptyOutDir: true,
@@ -24,4 +25,4 @@ export default defineConfig({
     port: 8080,
     strictPort: true,
   },
-});
+}));

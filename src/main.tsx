@@ -3,9 +3,11 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 
-// For GitHub Pages, we don't need to set basename since we're using the root
+// Dynamically set basename based on environment
+const basename = import.meta.env.MODE === 'docker' ? '/' : '/Gurekam-Portfolio';
+
 createRoot(document.getElementById("root")!).render(
-  <BrowserRouter basename="/Gurekam-Portfolio">
+  <BrowserRouter basename={basename}>
     <App />
   </BrowserRouter>
 );
