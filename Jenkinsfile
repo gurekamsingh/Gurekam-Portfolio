@@ -11,6 +11,7 @@ pipeline {
                 }
             }
         }
+    }
 
         stage('Run Container (Test)') {
             steps {
