@@ -23,7 +23,7 @@ pipeline {
         stage ('Launching ec2 instance') {
             steps {
                 echo "Deploying container to ec2 instance"
-                withCredentials([sshUserPrivateKey(credentialsId: 'dockerhub-token', keyFileVariable: 'DockerHubToken')]) {
+                withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DockerHubToken')]) {
                     sshagent(['ec2-instance']) {
                         sh ''' 
                             ssh -o StrictHostKeyChecking=no ubuntu@ec2-18-220-69-81 "
