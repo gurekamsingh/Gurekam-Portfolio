@@ -9,10 +9,10 @@ pipeline {
                     def app = docker.build('gurekam22/gportfolio:latest')
                     withDockerRegistry(credentialsId: '816ad141-f5bd-4389-87b8-8ce8f3815101') {
                         app.push()
+                    }
                 }
             }
         }
-    }
 
         stage('Run Container (Test)') {
             steps {
