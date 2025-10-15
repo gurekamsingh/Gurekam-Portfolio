@@ -9,8 +9,10 @@ This project showcases my skills, projects, and professional experience in a cle
 - [🚀 Gurekam's Portfolio](#-gurekams-portfolio)
   - [📚 Table of Contents](#-table-of-contents)
   - [📌 Project Overview](#-project-overview)
-  - [🛠️ Technologies Used](#-technologies-used)
+  - [🛠️ Technologies Used](#️-technologies-used)
   - [📁 Folder Structure](#-folder-structure)
+- [🔮 Future Scope](#-future-scope)
+  - [1. Add Container Existence Check](#1-add-container-existence-check)
 
 ---
 
@@ -51,3 +53,20 @@ Gurekam-Portfolio/
 ├── package.json           # 📦 Project metadata & scripts
 ├── vite.config.ts         # ⚙️ Vite configuration
 └── README.md              # 📘 You're here!
+
+```
+
+# 🔮 Future Scope
+
+## 1. Add Container Existence Check
+Enhance the **Run Container** stage to automatically detect if a container with the same name already exists.  
+If found, stop and remove it before launching a new one to ensure a clean and consistent deployment.
+
+**Example Script:**
+```bash
+if docker ps -a --format '{{.Names}}' | grep -Eq '^test-portfolio$'; then
+  docker stop test-portfolio || true
+  docker rm test-portfolio || true
+fi
+docker run -d -p 3000:80 --name test-portfolio gurekam22/gportfolio:latest
+```
