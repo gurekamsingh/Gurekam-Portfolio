@@ -23,9 +23,18 @@ pipeline {
         stage ('Launching ec2 instance') {
             steps {
                 echo "Deploying container to ec2 instance"
-                sshagent(['ec2-instance']) {
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-18-220-69-81.us-east-2.compute.amazonaws.com "echo hello"'
-                    
+                withCredentials([sshUserPrivateKey(credentialsId: 'dockerhub-token', keyFileVariable: 'DockerHubToken')]) {
+                    sshagent(['ec2-instance']) {
+                        sh ``` 
+                            ssh -o StrictHostKeyChecking=no ubuntu@ec2-18-220-69-81 "
+                            docker login -u gurekam22 -p ${DockerHubToken} &&
+                            docker pull gurekam22/gportfolio:latest &&
+                            docker stop test-portfolio || true &&
+                            docker rm test-portfolio || true &&
+                            docker run -d -p 80:80 --name test-portfolio gurekam22/gportfolio:latest
+                            "
+                        ```
+                    }
                 }
             }
         }
