@@ -20,25 +20,25 @@ pipeline {
 
         stage('Run Container (Test)') {
             steps {
-                sh 'docker run -d -p 3000:80 --name test-portfolio gurekam22/gportfolio:latest'
+                bat 'docker run -d -p 3000:80 --name test-portfolio gurekam22/gportfolio:latest'
             }
         }
 
         stage ('Launching ec2 instance') {
             steps {
                 echo "Deploying container to ec2 instance"
-                withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DockerHubToken')]) {
-                    sshagent(['ec2-instance']) {
-                        sh ''' 
-                            ssh -o StrictHostKeyChecking=no ubuntu@ec2-18-220-69-81 "
-                            docker login -u gurekam22 -p ${DockerHubToken} &&
-                            docker pull gurekam22/gportfolio:latest &&
-                            docker stop test-portfolio || true &&
-                            docker rm test-portfolio || true &&
-                            docker run -d -p 80:80 --name test-portfolio gurekam22/gportfolio:latest
-                            "
-                        '''
-                    }
+                withCredentials([
+                    string(credentialsId: 'dockerhub-token', variable: 'DockerHubToken'),
+                    sshUserPrivateKey(credentialsId: 'ec2-instance', keyFileVariable: 'SSH_KEY')]) {
+                    powershell '''
+                        ssh -i $env:SSH_KEY -o StrictHostKeyChecking=no ubuntu@ec2-18-220-69-81 "
+                        docker login -u gurekam22 -p $env:DockerHubToken && 
+                        docker pull gurekam22/gportfolio:latest && 
+                        docker stop test-portfolio || true && 
+                        docker rm test-portfolio || true && 
+                        docker run -d -p 80:80 --name test-portfolio gurekam22/gportfolio:latest
+                        "
+                    '''
                 }
             }
         }
