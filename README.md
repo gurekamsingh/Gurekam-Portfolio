@@ -11,8 +11,8 @@ This project showcases my skills, projects, and professional experience in a cle
   - [📌 Project Overview](#-project-overview)
   - [🛠️ Technologies Used](#️-technologies-used)
   - [📁 Folder Structure](#-folder-structure)
-  - [🔮 Future Scope](#-future-scope)
-- [1. Add Container Existence Check](#1-add-container-existence-check)
+- [🔮 Future Scope](#-future-scope)
+  - [1. Add Container Existence Check](#1-add-container-existence-check)
 
 ---
 
@@ -56,9 +56,9 @@ Gurekam-Portfolio/
 
 ```
 
-## 🔮 Future Scope
+# 🔮 Future Scope
 
-# 1. Add Container Existence Check
+## 1. Add Container Existence Check
 Enhance the **Run Container** stage to automatically detect if a container with the same name already exists.  
 If found, stop and remove it before launching a new one to ensure a clean and consistent deployment.
 
