@@ -29,7 +29,7 @@ pipeline {
                 echo "Deploying container to ec2 instance"
                 withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DockerHubToken')]) {
                     sshagent(['ec2-instance']) {
-                        bat ''' 
+                        sh ''' 
                             ssh -o StrictHostKeyChecking=no ubuntu@ec2-18-220-69-81 "
                             docker login -u gurekam22 -p ${DockerHubToken} &&
                             docker pull gurekam22/gportfolio:latest &&
