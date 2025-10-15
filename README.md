@@ -11,6 +11,8 @@ This project showcases my skills, projects, and professional experience in a cle
   - [📌 Project Overview](#-project-overview)
   - [🛠️ Technologies Used](#️-technologies-used)
   - [📁 Folder Structure](#-folder-structure)
+  - [🔮 Future Scope](#-future-scope)
+- [1. Add Container Existence Check](#1-add-container-existence-check)
 
 ---
 
@@ -51,6 +53,8 @@ Gurekam-Portfolio/
 ├── package.json           # 📦 Project metadata & scripts
 ├── vite.config.ts         # ⚙️ Vite configuration
 └── README.md              # 📘 You're here!
+
+```
 
 ## 🔮 Future Scope
 
