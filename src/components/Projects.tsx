@@ -5,6 +5,20 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
+    title: "Tracker",
+    description: "A modern deadline tracking application with real-time countdown tracking and auto-priority detection. Built with React, Node.js, PostgreSQL, and deployed on Vercel and Railway with comprehensive security features and JWT authentication.",
+    technologies: ["React", "Node.js", "PostgreSQL", "Prisma", "JWT", "Vercel", "Railway", "TypeScript", "Tailwind CSS"],
+    highlights: [
+      "Real-time countdown tracking with auto-priority detection",
+      "JWT authentication with secure password hashing",
+      "Full-stack TypeScript application with Prisma ORM",
+      "Production deployment on Vercel and Railway platforms"
+    ],
+    category: "Full-Stack Development",
+    github: "https://github.com/gurekamsingh/Tracker",
+    demo: "https://track-the-deadline.vercel.app/"
+  },
+  {
     title: "DevOps Incident Center",
     description: "A self-hosted incident dashboard that ingests Prometheus alerts, tracks service health, and visualizes open & resolved incidents in real-time. Built with FastAPI, React, Prometheus, Grafana, and Kubernetes.",
     technologies: ["FastAPI", "React", "Prometheus", "Grafana", "Kubernetes", "Docker", "Python"],
