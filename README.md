@@ -16,6 +16,8 @@ This project showcases my skills, projects, and professional experience in a cle
 
 ---
 
+<img width="1782" height="958" alt="image" src="https://github.com/user-attachments/assets/f9e5fd7e-6654-48b5-b1a2-5518e14d3d2b" />
+
 ## 📌 Project Overview
 
 This portfolio is designed to highlight my professional journey, technical expertise, and personal projects.  
