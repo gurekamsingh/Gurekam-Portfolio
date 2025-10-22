@@ -44,6 +44,20 @@ const projects = [
     github: "https://github.com/pooja-vish/EcoExchange"
   },
   {
+    title: "Tracker",
+    description: "A modern deadline tracking application with real-time countdown tracking and auto-priority detection. Built with React, Node.js, PostgreSQL, and deployed on Vercel and Railway with comprehensive security features and JWT authentication.",
+    technologies: ["React", "Node.js", "PostgreSQL", "Prisma", "JWT", "Vercel", "Railway", "TypeScript", "Tailwind CSS"],
+    highlights: [
+      "Real-time countdown tracking with auto-priority detection",
+      "JWT authentication with secure password hashing",
+      "Full-stack TypeScript application with Prisma ORM",
+      "Production deployment on Vercel and Railway platforms"
+    ],
+    category: "Full-Stack Development",
+    github: "https://github.com/gurekamsingh/Tracker",
+    demo: "https://track-the-deadline.vercel.app/"
+  },
+  {
     title: "Infrastructure Automation at Paytm",
     description: "Led large-scale infrastructure automation initiatives, implementing Terraform modules for AWS services and establishing comprehensive monitoring with Prometheus, Grafana, and ELK stack.",
     technologies: ["Terraform", "AWS", "Prometheus", "Grafana", "ELK Stack", "Jenkins", "ArgoCD", "Kubernetes"],
@@ -121,7 +135,13 @@ const Projects = () => {
                     Code
                   </Button>
                 )}
-                <Button size="sm" variant="outline" className="flex-1 glass border-devops-cyan/30 hover:border-devops-cyan hover:shadow-soft transition-all duration-300">
+                <Button 
+                  size="sm" 
+                  variant="outline" 
+                  className="flex-1 glass border-devops-cyan/30 hover:border-devops-cyan hover:shadow-soft transition-all duration-300"
+                  onClick={() => project.demo ? window.open(project.demo, '_blank') : null}
+                  disabled={!project.demo}
+                >
                   <ExternalLink className="w-4 h-4 mr-2" />
                   Demo
                 </Button>
