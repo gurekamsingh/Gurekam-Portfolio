@@ -7,7 +7,7 @@ const experiences = [
     title: "DevOps Engineer",
     company: "Alpha Tickets Ltd.",
     location: "Toronto, ON",
-    period: "November 2023 - Present",
+    period: "January 2024 - December 2025",
     achievements: [
       "Architected and deployed a high-performance ticketing platform on Azure AKS with Docker containers, handling concurrent users during peak events and ensuring 99.9% uptime",
       "Automated CI/CD pipelines using Azure DevOps and Github Actions, accelerating releases and minimizing errors",
@@ -25,7 +25,7 @@ const experiences = [
     title: "DevOps Engineer",
     company: "Paytm (One97 Communications Ltd.)",
     location: "Noida, India",
-    period: "January 2022 - June 2023",
+    period: "January 2022 - August 2023",
     achievements: [
       "Automated AWS infrastructure provisioning with Terraform modules for EC2, S3, VPC, SG, and EMR, reducing setup time by 50%",
       "Implemented Prometheus, Grafana, and ELK stack for proactive monitoring and centralized logging; established Telegraf and kube-state-metrics",
