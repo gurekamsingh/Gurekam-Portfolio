@@ -76,8 +76,8 @@ const Contact = () => {
             className="bg-gradient-primary hover:shadow-glow transition-all duration-400 animate-glow"
             onClick={() => {
               const link = document.createElement('a');
-              link.href = '/Gurekam_Resume_DevOps.pdf';
-              link.download = 'Gurekam_Resume_DevOps.pdf';
+              link.href = '/Gurekam_Resume_DevOps_N3.pdf';
+              link.download = 'Gurekam_Resume_DevOps_N3.pdf';
               link.click();
             }}
           >
