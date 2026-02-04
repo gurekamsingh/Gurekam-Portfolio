@@ -71,18 +71,16 @@ const Contact = () => {
             </a>
           </div>
 
-          <Button 
-            size="lg" 
-            className="bg-gradient-primary hover:shadow-glow transition-all duration-400 animate-glow"
-            onClick={() => {
-              const link = document.createElement('a');
-              link.href = '/Gurekam_Resume_DevOps_N3.pdf';
-              link.download = 'Gurekam_Resume_DevOps_N3.pdf';
-              link.click();
-            }}
-          >
-            <Download className="mr-2 h-5 w-5" />
-            Download Resume
+          <Button asChild size="lg" className="bg-gradient-primary hover:shadow-glow transition-all duration-400 animate-glow">
+            <a
+              href={`${window.location.origin}${import.meta.env.BASE_URL}Gurekam_Resume_DevOps.pdf`}
+              download="Gurekam_Resume_DevOps.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Download className="mr-2 h-5 w-5" />
+              Download Resume
+            </a>
           </Button>
         </div>
       </div>

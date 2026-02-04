@@ -39,9 +39,16 @@ const Hero = () => {
             <Mail className="mr-2 h-5 w-5" />
             Get In Touch
           </Button>
-          <Button variant="outline" size="lg" className="glass border-devops-blue/30 hover:border-devops-blue hover:shadow-soft transition-all duration-400">
-            <Download className="mr-2 h-5 w-5" />
-            Download Resume
+          <Button asChild variant="outline" size="lg" className="glass border-devops-blue/30 hover:border-devops-blue hover:shadow-soft transition-all duration-400">
+            <a
+              href={`${window.location.origin}${import.meta.env.BASE_URL}Gurekam_Resume_DevOps.pdf`}
+              download="Gurekam_Resume_DevOps.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Download className="mr-2 h-5 w-5" />
+              Download Resume
+            </a>
           </Button>
         </div>
 
