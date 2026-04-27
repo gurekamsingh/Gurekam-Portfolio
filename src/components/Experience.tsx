@@ -1,6 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import TiltCard from "@/components/motion/TiltCard";
 
 const experiences = [
   {
@@ -17,9 +19,9 @@ const experiences = [
       "Designed and integrated REST APIs with Spring Boot for external data ingestion, automating periodic fetch and transformation",
       "Built Node.js utilities for processing ticketing data streams and wrote optimized SQL queries to support analytics and reporting",
       "Developed custom scripts and tools using Python and PowerShell to automate routine DevOps tasks, saving 10 hours per week",
-      "Configured Prometheus and Grafana on Azure for real-time monitoring and alerting, reducing MTTD by 50%"
+      "Configured Prometheus and Grafana on Azure for real-time monitoring and alerting, reducing MTTD by 50%",
     ],
-    tags: ["Azure", "Kubernetes", "Docker", "CI/CD", "Python", "Prometheus", "Grafana"]
+    tags: ["Azure", "Kubernetes", "Docker", "CI/CD", "Python", "Prometheus", "Grafana"],
   },
   {
     title: "DevOps Engineer",
@@ -32,13 +34,15 @@ const experiences = [
       "Led CI/CD pipeline migration using Jenkins with Helm charts and ArgoCD on EKS, cutting deployment failures by 70%",
       "Developed data ingestion pipelines from AWS and on-prem VMware assets to MongoDB for real-time inventory tracking",
       "Drove cost optimization initiatives leveraging Kubecost, cutting AWS expenses by 30% across 10 accounts",
-      "Led on-call support via PagerDuty, ensuring 99.9% uptime through rapid incident resolution and RCA"
+      "Led on-call support via PagerDuty, ensuring 99.9% uptime through rapid incident resolution and RCA",
     ],
-    tags: ["AWS", "Terraform", "Jenkins", "EKS", "MongoDB", "ELK Stack", "ArgoCD"]
-  }
+    tags: ["AWS", "Terraform", "Jenkins", "EKS", "MongoDB", "ELK Stack", "ArgoCD"],
+  },
 ];
 
 const Experience = () => {
+  const reduced = useReducedMotion();
+
   return (
     <section id="experience" className="section-padding">
       <div className="text-center mb-16">
@@ -52,43 +56,63 @@ const Experience = () => {
 
       <div className="space-y-8">
         {experiences.map((exp, index) => (
-          <Card key={index} className="glass border-devops-blue/20 hover:border-devops-blue/40 transition-all duration-400 hover:shadow-soft hover:scale-102 transform perspective">
-            <div className="p-8">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-2">{exp.title}</h3>
-                  <h4 className="text-xl text-devops-cyan font-semibold">{exp.company}</h4>
-                </div>
-                <div className="flex flex-col md:items-end space-y-2 mt-4 md:mt-0">
-                  <div className="flex items-center text-muted-foreground">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    {exp.period}
+          <motion.div
+            key={index}
+            initial={reduced ? false : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <TiltCard className="rounded-xl" maxTilt={3} lift={4}>
+              <Card className="glass border-devops-blue/20 hover:border-devops-cyan/40 transition-colors duration-400 bg-card/40">
+                <div className="p-8">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground mb-2">
+                        {exp.title}
+                      </h3>
+                      <h4 className="text-xl text-devops-cyan font-semibold">
+                        {exp.company}
+                      </h4>
+                    </div>
+                    <div className="flex flex-col md:items-end space-y-2 mt-4 md:mt-0">
+                      <div className="flex items-center text-muted-foreground">
+                        <Calendar className="h-4 w-4 mr-2" />
+                        {exp.period}
+                      </div>
+                      <div className="flex items-center text-muted-foreground">
+                        <MapPin className="h-4 w-4 mr-2" />
+                        {exp.location}
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center text-muted-foreground">
-                    <MapPin className="h-4 w-4 mr-2" />
-                    {exp.location}
+
+                  <ul className="space-y-3 mb-6">
+                    {exp.achievements.map((achievement, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <div className="w-2 h-2 bg-devops-blue rounded-full mt-2 mr-3 flex-shrink-0" />
+                        <span className="text-muted-foreground leading-relaxed">
+                          {achievement}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-wrap gap-2">
+                    {exp.tags.map((tag, idx) => (
+                      <Badge
+                        key={idx}
+                        variant="secondary"
+                        className="bg-devops-blue/10 text-devops-blue border-devops-blue/20 hover:bg-devops-blue/20 transition-colors"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
                   </div>
                 </div>
-              </div>
-
-              <ul className="space-y-3 mb-6">
-                {exp.achievements.map((achievement, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <div className="w-2 h-2 bg-devops-blue rounded-full mt-2 mr-3 flex-shrink-0" />
-                    <span className="text-muted-foreground leading-relaxed">{achievement}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="flex flex-wrap gap-2">
-                {exp.tags.map((tag, idx) => (
-                  <Badge key={idx} variant="secondary" className="bg-devops-blue/10 text-devops-blue border-devops-blue/20 hover:bg-devops-blue/20 transition-colors">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          </Card>
+              </Card>
+            </TiltCard>
+          </motion.div>
         ))}
       </div>
     </section>

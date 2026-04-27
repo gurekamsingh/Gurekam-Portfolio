@@ -7,18 +7,26 @@ import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import MouseLightEffect from "@/components/MouseLightEffect";
+import BackgroundFX from "@/components/BackgroundFX";
+import MetricsStrip from "@/components/MetricsStrip";
+import TechMarquee from "@/components/TechMarquee";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="relative min-h-screen bg-background">
+      <BackgroundFX />
       <MouseLightEffect />
+      <ScrollProgress />
       <Navigation />
       <main>
         <div id="home">
           <Hero />
         </div>
+        <MetricsStrip />
         <Experience />
         <Skills />
+        <TechMarquee />
         <Projects />
         <Certifications />
         <Contact />

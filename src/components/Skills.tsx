@@ -1,53 +1,56 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Cloud, Code, Database, Monitor, Settings, GitBranch } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 
 const skillCategories = [
   {
     title: "Cloud Platforms",
     icon: Cloud,
     skills: ["AWS", "Azure", "GCP", "Databricks", "Kafka", "Flink", "Athena", "Dataflow"],
-    color: "devops-blue"
+    color: "devops-blue",
   },
   {
     title: "Infrastructure as Code",
     icon: Settings,
     skills: ["Terraform", "Chef", "Ansible", "CloudFormation", "CDK", "End-to-End (e2e)"],
-    color: "devops-cyan"
+    color: "devops-cyan",
   },
   {
     title: "Containerization & Version Control",
     icon: GitBranch,
     skills: ["Docker", "Kubernetes", "Git", "GitHub"],
-    color: "devops-purple"
+    color: "devops-purple",
   },
   {
     title: "CI/CD",
     icon: Settings,
     skills: ["Jenkins", "ArgoCD", "GitHub Actions", "Maven", "Artifactory"],
-    color: "devops-green"
+    color: "devops-green",
   },
   {
     title: "Monitoring & Alerting",
     icon: Monitor,
     skills: ["Prometheus", "Grafana", "Telegraf", "CloudWatch", "OpenTelemetry", "Splunk", "Dynatrace"],
-    color: "devops-blue"
+    color: "devops-blue",
   },
   {
     title: "Programming Languages",
     icon: Code,
     skills: ["Python", "Bash", "Java", "C", "Node.js", "Express.js", "React", "Spring Boot", "GoLang", "C++"],
-    color: "devops-cyan"
+    color: "devops-cyan",
   },
   {
     title: "Databases",
     icon: Database,
     skills: ["MySQL", "Oracle", "MongoDB", "PostgreSQL", "NoSQL"],
-    color: "devops-purple"
-  }
+    color: "devops-purple",
+  },
 ];
 
 const Skills = () => {
+  const reduced = useReducedMotion();
+
   return (
     <section id="skills" className="section-padding">
       <div className="text-center mb-16">
@@ -63,28 +66,40 @@ const Skills = () => {
         {skillCategories.map((category, index) => {
           const IconComponent = category.icon;
           return (
-            <Card key={index} className="glass border-devops-blue/20 hover:border-devops-blue/40 transition-all duration-400 hover:shadow-soft group">
-              <div className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className={`p-3 rounded-lg bg-${category.color}/10 group-hover:bg-${category.color}/20 transition-colors duration-300`}>
-                    <IconComponent className={`h-6 w-6 text-${category.color}`} />
+            <motion.div
+              key={index}
+              initial={reduced ? false : { opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{
+                duration: 0.5,
+                ease: [0.22, 1, 0.36, 1],
+                delay: (index % 3) * 0.06,
+              }}
+            >
+              <Card className="glass border-devops-blue/20 hover:border-devops-cyan/40 transition-all duration-400 hover:shadow-soft hover:-translate-y-1 group bg-card/40 h-full">
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className={`p-3 rounded-lg bg-${category.color}/10 group-hover:bg-${category.color}/20 transition-colors duration-300`}>
+                      <IconComponent className={`h-6 w-6 text-${category.color}`} />
+                    </div>
+                    <h3 className="text-lg font-semibold ml-3">{category.title}</h3>
                   </div>
-                  <h3 className="text-lg font-semibold ml-3">{category.title}</h3>
+
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill, idx) => (
+                      <Badge
+                        key={idx}
+                        variant="secondary"
+                        className={`bg-${category.color}/10 text-${category.color} border-${category.color}/20 hover:bg-${category.color}/20 transition-colors`}
+                      >
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
-                
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, idx) => (
-                    <Badge 
-                      key={idx} 
-                      variant="secondary" 
-                      className={`bg-${category.color}/10 text-${category.color} border-${category.color}/20 hover:bg-${category.color}/20 transition-colors`}
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            </Card>
+              </Card>
+            </motion.div>
           );
         })}
       </div>

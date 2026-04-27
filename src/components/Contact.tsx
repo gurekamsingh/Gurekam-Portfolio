@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Github, Linkedin, Mail, MapPin, Download } from "lucide-react";
+import { RESUME_FILENAME } from "@/lib/resume";
 
 const Contact = () => {
   return (
@@ -61,7 +62,7 @@ const Contact = () => {
               <span>GitHub Portfolio</span>
             </a>
             <a 
-              href="https://www.linkedin.com/in/gurekam-singh-bedi-0a0ba1239/" 
+              href="https://www.linkedin.com/in/gurekam-bedi-0a0ba1239/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center space-x-3 text-muted-foreground hover:text-devops-cyan transition-colors duration-300 group"
@@ -73,8 +74,8 @@ const Contact = () => {
 
           <Button asChild size="lg" className="bg-gradient-primary hover:shadow-glow transition-all duration-400 animate-glow">
             <a
-              href={`${window.location.origin}${import.meta.env.BASE_URL}Gurekam_Resume_DevOps.pdf`}
-              download="Gurekam_Resume_DevOps.pdf"
+              href={`${import.meta.env.BASE_URL}${RESUME_FILENAME}`}
+              download={RESUME_FILENAME}
               target="_blank"
               rel="noopener noreferrer"
             >
